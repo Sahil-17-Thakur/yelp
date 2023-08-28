@@ -1,0 +1,22 @@
+#map{
+    width: 100%;
+    height: 500px;
+}
+
+#show-map{
+    width: 100%;
+    height: 300px;
+}
+#add-map{
+    position: relative;
+    width: 100%;
+    height: 300px;
+   
+}
+
+.custom-geocoder-container {
+    position: absolute;
+    top: 10px; /* Adjust the top value as needed to position the search bar */
+    left: 10px; /* Adjust the left value as needed to position the search bar */
+    z-index: 1;
+}

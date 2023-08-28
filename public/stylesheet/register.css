@@ -1,0 +1,29 @@
+/* .container{
+width: 300px;
+height: 200px;
+} */
+/* .row{
+    background-color: rgb(212, 248, 236)ff; /* Blue color from Bootstrap */
+    /* color: black;
+    mix-blend-mode: multiply;
+    box-sizing: border-box;
+} */ 
+
+
+
+ .card-body{
+  background-color: rgb(242, 223, 200);
+ }
+ .card-body .card-title{
+  color: rgb(16, 20, 17);
+  font-weight: 700;
+ }
+ .card-body label{
+  color: rgb(2, 3, 18);
+ }
+ /* .card-title .mb-3{
+  color : black
+ } */
+ .card-shadow.card-img-top{
+  background-color: #fff;
+ }

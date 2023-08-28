@@ -1,0 +1,23 @@
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ebebeb;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    
+  }
+  #file-upload{
+    display: none;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #ddd;
+  }
+  
+  .custom-file-upload i {
+    margin-right: 5px;
+  }
+  

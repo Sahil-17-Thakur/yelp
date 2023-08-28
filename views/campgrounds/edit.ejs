@@ -1,0 +1,97 @@
+
+  <% layout('/layout/boilerplate') %>
+  <link rel="stylesheet" href="../../stylesheet/fileType.css">
+  <link rel ="stylesheet" href="../../stylesheet/imagename.css"
+
+  <div class=" mx-auto ">
+  <h1 class=" text-center">Edit Campground</h1>
+  <div class="col-6 offset-3 ">
+    <form action="/campgrounds/<%=camp._id%>?_method=PUT" method="POST" novalidate class="validated-form"  enctype="multipart/form-data"> 
+          <div class="mb-3">
+        <label class="form-label" for="camp-name">Title</label>
+      <input class="form-control" type="text" name="title" id="camp-name" value="<%=camp.title%>"required>
+         </div>
+
+
+         <div class="mb-3">
+          <label class="form-label" for="price">Campground price</label>
+          <div class="input-group">
+          <span class="input-group-text" id="price-label">$</span>
+         <input type="text" class="form-control" id="price" placeholder="0.00" name="price" aria-label="price" aria-describedby="price-label" value="<%=camp.price %>"required>
+        </div>
+        </div>
+
+         <div class="mb-3">
+          <label class="form-label" for="loc-name">Location</label>
+        <input class="form-control" type="text" name="location" id="loc-name" value="<%=camp.location%>" required>
+      </div>
+           
+         
+           <div class="sm mb-3">
+          <label class="form-label" for="description-name">Description</label>
+        <textarea class="form-control" type="text" name="description" id="description-name" placeholder="campground description">
+          <%=camp.description %></textarea>
+           </div>
+
+           <label for="file-upload" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i> Add Image
+          </label>
+          <input id="file-upload" type="file" name="images" multiple>
+          <span id="span-id"></span>
+
+          <div class="mb-3" >
+            <% camp.images.forEach((img,i)=>{ %>
+             <img src="<%= img.thumbnail%>" class="img-thumbnail" alt="" >
+              <div class="form-check-inline">
+                <input type="checkbox" id="image-<%=i %>" name="deleteImages[]" value="<%=img.filename%>" >
+              </div>
+              <label for="image-<%=i %>" >Delete?</label>
+             <%}) %>
+          </div>
+
+           <div class="mb-3">
+               <button class="btn btn-success">Edit Camp</button>
+            </div>
+  </div>
+</div>
+
+<script>
+  const span = document.getElementById('span-id');
+const ul=document.createElement("ul");
+ul.setAttribute('class', 'imgName');
+document.getElementById("file-upload").onchange = function(e){
+  Array.from(e.target.files).forEach(file=>{
+  const li = document.createElement("li");
+  li.setAttribute("class", "imgLi");
+  ul.append(li);
+    li.innerText+=`${file.name}`
+   // <li class="imgList">${file.name}</li>`;
+  })
+  span.appendChild(ul);
+}
+
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+const forms = document.querySelectorAll('.validated-form')
+
+  // Loop over them and prevent submission
+  Array.from(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+<script src="javascript/validateForm.js"></script>
+
+ 

@@ -1,0 +1,60 @@
+body{
+ height: 100vh;
+ background-image: linear-gradient(rgba(247, 53, 53, 0), rgba(20, 17, 17, 0.7)), 
+ url("https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+background-size: cover;
+background-position: center;
+text-shadow: 1px 1px rgb(94, 92, 92);
+}
+.cover-container{
+  max-width: 60vw;
+ 
+}
+.m-cls{
+    margin-top: 70px;
+     margin-bottom: auto;
+     text-shadow: none;
+ }
+.nav-link{
+    font-weight: 700;
+    color: rgb(173, 169, 169);
+    margin-left: 1.5rem;
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover{
+    color: white;
+    border-bottom-color: white;
+}
+
+.nav-link.active{
+    color: white;
+    border-bottom-color: white;
+}
+
+.m-cls a{
+    color:  rgb(89, 239, 86);
+    border-color:rgb(89, 239, 86);
+    background-color:white; 
+} 
+
+.btn-secondary, .m-cls a:hover{
+color : white;
+background-color: rgb(89, 239, 86);
+border-color:white;
+}
+
+#go-camp, .float-md-left{
+    color: rgb(176, 236, 164);
+    
+}
+.toggle_btn .fa-duotone {
+    color: white;
+    font-size: 1.5rem;
+    cursor:pointer;
+}
+
+
+
+
+

@@ -1,0 +1,13 @@
+.imgName{
+    display: flex;
+    list-style-type: square;
+    transition: custom-file-upload,2s;
+   
+}
+.imgLi{
+    margin-left: 20px;
+}
+.custom-file-upload:hover{
+    background-color: rgb(152, 146, 146);
+    cursor: pointer;
+}

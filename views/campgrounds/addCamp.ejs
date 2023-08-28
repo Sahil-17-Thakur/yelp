@@ -1,0 +1,101 @@
+<% layout('/layout/boilerplate') %> 
+<link rel="stylesheet" href="../../stylesheet/fileType.css">
+<link
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
+    rel='stylesheet'
+/>
+    
+       <div class="container">
+        <h1>New Campground</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-6 mb-4">
+        <div class="border p-3"> 
+          <form action="/campgrounds" method="post" novalidate class="validated-form" enctype="multipart/form-data"> 
+        <div class="mb-3">
+      <label class="form-label" for="camp-name">Title</label>
+    <input class="form-control" type="text" name="title" id="camp-name" required>
+       </div>
+
+      <div class="mb-3">
+       <label for="file-upload" class="custom-file-upload">
+        <i class="fa fa-cloud-upload"></i> Add Image
+      </label>
+      <input id="file-upload" type="file" name="images" multiple>
+      <span id="span-id"></span>
+      </div>
+
+       <div class="mb-3">
+        <label class="form-label" for="price">Campground price</label>
+        <div class="input-group">
+        <span class="input-group-text" id="price-label">$</span>
+       <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price" aria-describedby="price-label"  required name="price">
+      </div>
+      </div>
+
+       <div class="mb-3">
+        <label class="form-label" for="loc-name">Location</label>
+      <input class="form-control" type="text" name="location" id="loc-name" required>
+         </div>
+       
+         <div class="mb-3">
+        <label class="form-label" for="description-name">Description</label>
+      <textarea class="form-control" type="text" name="description" id="description-name" placeholder="campground description" required>
+        </textarea>
+         </div>
+
+         <div class="mb-3">
+             <button class="btn btn-success">Add Camp</button>
+          </div>
+  </form>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="border p-3"> 
+          <h5>Select Location</h5>
+          <div id='add-map'></div>
+        
+      </div>
+    </div>
+  </div>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+  <script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>'
+    </script>
+
+
+<script src="/javascript/addMap.js"> </script>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+const forms = document.querySelectorAll('.validated-form')
+
+  // Loop over them and prevent submission
+  Array.from(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
+const span = document.getElementById('span-id');
+const ul=document.createElement("ul");
+document.getElementById("file-upload").onchange = function(e){
+  Array.from(e.target.files).forEach(file=>{
+
+    ul.innerHTML+=`<li>${file.name}</li>`;
+  })
+  span.appendChild(ul);
+}
+
+  </script>

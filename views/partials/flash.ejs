@@ -1,0 +1,23 @@
+<% if(messages && messages.length) {%>
+<div class="alert alert-warning d-flex  alert-dismissible fade show" role="alert">
+    <div class="p-2">
+  <%=messages %>
+    </div>
+    <div class="ml-auto">
+    <button  class="btn btn-close alert-warning"  data-bs-dismiss="alert" aria-label="Close">X
+    </button>
+  </div>
+  </div>
+  <% } %>
+
+  <% if(error && error.length) {%>
+    <div class="alert alert-danger d-flex  alert-dismissible fade show" role="alert">
+        <div class="p-2">
+      <%=error %>
+        </div>
+        <div class="ml-auto">
+        <button  class="btn btn-close alert-danger"  data-bs-dismiss="alert" aria-label="Close">X
+        </button>
+      </div>
+      </div>
+      <% } %>
